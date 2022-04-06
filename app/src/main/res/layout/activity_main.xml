@@ -6,13 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Row 1 -->
     <TextView
+        android:id="@+id/textview_fname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="First Name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_fname"
+        app:layout_constraintStart_toEndOf="@+id/textview_fname"
+        android:layout_marginStart="50dp"
+        android:ems="10"
+        android:inputType="text"
+        />
+
+    <!-- Row 2 -->
+    <TextView
+        android:id="@+id/textview_lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        app:layout_constraintTop_toBottomOf="@+id/textview_fname"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_lname"
+        app:layout_constraintStart_toEndOf="@+id/textview_lname"
+        android:layout_marginStart="50dp"
+        android:ems="10"
+        android:inputType="text"
+        />
+
+    <!-- Row 3 -->
+    <Button
+        android:id="@+id/find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_lname"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Find"
+        android:onClick="find"
+        />
+
+    <Button
+        android:id="@+id/make_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/find"
+        app:layout_constraintBaseline_toBaselineOf="@+id/find"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Make Call"
+        android:onClick="makeCall"
+        />
+
+    <!-- Row 3 -->
+    <TextView
+        android:id="@+id/phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/find"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:text="Phone Number"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
