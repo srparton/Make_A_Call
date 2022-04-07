@@ -15,11 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String AUTHORITY = "com.example.phonebook.MyContentProvider";
+    private static final String AUTHORITY = "com.example.phonebook.mycontentprovider";
     private static final String TABLE_CONTACTS = "contacts";
-    public static final String COLUMN_FNAME = "fname";
-    public static final String COLUMN_LNAME = "lname";
-    public static final String COLUMN_PHONENUM = "phonenum";
+    public static final String COLUMN_FNAME = "fName";
+    public static final String COLUMN_LNAME = "lName";
+    public static final String COLUMN_PHONENUM = "phoneNumber";
     EditText fnameBox, lnameBox;
     TextView phnNumBox;
 
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         // This logic is kind of awful...
         boolean b = true;
+        Log.d("cursor", "find: cursor.getCount() = "+cursor.getCount());
         if (!cursor.moveToFirst()) {
             phnNumBox.setText("There are no contacts in the phone book.");
             b = false;
