@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         // This logic is kind of awful...
         boolean b = true;
-        Log.d("cursor", "find: cursor.getCount() = "+cursor.getCount());
+//        Log.d("cursor", "find: cursor.getCount() = "+cursor.getCount());
         if (!cursor.moveToFirst()) {
             phnNumBox.setText("There are no contacts in the phone book.");
             b = false;
@@ -64,15 +64,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void makeCall(View view) {
         String PN = "";
-        if (phnNumBox.getText().toString().length() == 12) {
+        Log.d("PN", "PN.length"+phnNumBox.getText().toString().length());
+        if (phnNumBox.getText().toString().length() == 10) {
+            Log.d("PN", "areaCode: "+phnNumBox.getText().toString().substring(0, 3));
             PN = phnNumBox.getText().toString().substring(0, 3) +
                     phnNumBox.getText().toString().substring(4, 7) +
-                    phnNumBox.getText().toString().substring(8, 12);
+                    phnNumBox.getText().toString().substring(7);
         }
         else if (phnNumBox.getText().toString().length() == 8) {
             PN = phnNumBox.getText().toString().substring(0, 3) +
                     phnNumBox.getText().toString().substring(4, 8);
         }
+        Log.d("MakeCall", "makeCall: PhoneNumber= "+PN);
+
         if (!PN.equals("")) {
             try {
                 Uri uri = Uri.parse("tel:" + PN);
